@@ -11,10 +11,12 @@ let db;
 // let MongoUrl = process.env.MongoUrl;
 let MongoLiveUrl = process.env.MongoLiveUrl;
 
+// First route Api
 app.get('/',(req,res) => {
     res.send(' Starbucks Node Server ')
 })
 
+// Category Api
 app.get('/category',(req,res)=>{
     let categoryId = Number(req.query.id);
     let category_type = req.query.type;
@@ -43,7 +45,7 @@ app.get('/category',(req,res)=>{
     })
 })
 
-
+// Stores Finder Api
 app.get('/stores',(req,res)=>{
     let city = Number(req.query.city_id);
     let cityname = req.query.city_name;
@@ -72,33 +74,12 @@ app.get('/stores',(req,res)=>{
 })
 
 
-// app.get('/category',(req,res) => {
-//     db.collection('category').find().toArray((err,result) => {
-//         if (err) throw err;
-//         res.send(result)
-//     })
-// })
-
 app.get('/city',(req,res) => {
     db.collection('city').find().toArray((err,result) => {
         if (err) throw err;
         res.send(result)
     })
 })
-
-// app.get('/giftcards',(req,res) => {
-//     db.collection('giftcards').find().toArray((err,result) => {
-//         if (err) throw err;
-//         res.send(result)
-//     })
-// })
-
-// app.get('/jobs',(req,res) => {
-//     db.collection('jobs').find().toArray((err,result) => {
-//         if (err) throw err;
-//         res.send(result)
-//     })
-// })
 
 app.get('/item/:id',(req,res)=>{
     let categoryId = Number(req.params.id);
@@ -109,6 +90,7 @@ app.get('/item/:id',(req,res)=>{
     })
 })
 
+// Api For Jobs
 app.get('/jobs',(req,res)=>{
     let cityId = Number(req.query.city_id);
     let cityname = req.query.city_name;
@@ -140,30 +122,12 @@ app.get('/jobs',(req,res)=>{
     })
 })
 
-// Fetching name for animation from database
-app.get('/fetchname/:id',(req,res)=>{
-    let userId = mongo.ObjectId(req.params.id);
-    db.collection('names').find({_id:userId}).toArray((err,result)=>{
-        if(err) throw err;
-        res.send(result);
-    })
-})
-
-// Coffee finder Api
-app.get('/ourcoffee/:id',(req,res)=>{
-    let optid=Number(req.params.id);
-
-    db.collection('coffeebeans').find({"opt_id":optid}).toArray((err,result)=>{
-        if(err) throw err;
-        res.send(result);
-    })
-})
 
 // Gift cards
 app.get('/giftcards/:id',(req,res)=>{
     let card_id=Number(req.params.id);
   
-    db.collection('giftCards').find({"gift_id":card_id}).toArray((err,result)=>{
+    db.collection('giftcards').find({"gift_id":card_id}).toArray((err,result)=>{
         if(err) throw err;
         res.send(result);    
     })
@@ -172,7 +136,7 @@ app.get('/giftcards/:id',(req,res)=>{
 // Gift card based on user's selection
 app.post('/giftcard',(req,res)=>{
     console.log(req.body);
-    db.collection('giftCards').find({_id:{$in:req.body}}).toArray((err,result)=>{
+    db.collection('giftcards').find({_id:{$in:req.body}}).toArray((err,result)=>{
         if(err) throw err;
         res.send(result);
     })
@@ -308,21 +272,6 @@ app.delete('/deleteOrder',(req,res)=>{
         res.send("Order(s) deleted.");
     })
 })
-
-// app.get('/stores',(req,res) => {
-//     db.collection('stores').find().toArray((err,result) => {
-//         if (err) throw err;
-//         res.send(result)
-//     })
-// })
-
-// app.get('/menu',(req,res) => {
-//     db.collection('menu').find().toArray((err,result) => {
-//         if (err) throw err;
-//         res.send(result)
-//     })
-// })
-
 
 // Connection with DataBase
 
