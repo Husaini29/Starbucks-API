@@ -1,24 +1,31 @@
 Api Link:
  http://localhost:9876/
+
  https://starbuck-api.herokuapp.com/
 
 Page 1: Find a Store
 
 Data to find a store:  
 http://localhost:9876/stores/stores
+
 https://starbuck-api.herokuapp.com/stores
 
 Find a store w.r.t cityId (for using in map): 
 http://localhost:9876/stores?city_id=4
+
 https://starbuck-api.herokuapp.com/stores?city_id=5
 
 Find a store w.r.t cityname (for using in search bar):
  http://localhost:9876/stores?city_name=delhi
+
  https://starbuck-api.herokuapp.com/stores?city_name=Delhi
 
 Find a store w.r.t store name (for using in search bar):
  http://localhost:9876/stores?name=Punjabi%20Bagh
+ 
  https://starbuck-api.herokuapp.com/stores?name=Punjabi%20Bagh
+
+
 
 Page 2: Menu (Fetches data for coffee as well as food)
 
@@ -31,6 +38,8 @@ https://starbuck-api.herokuapp.com/category?id=1
 https://starbuck-api.herokuapp.com/category?type=Food&id=10
 
 Menu data w.r.t category id: https://starbuck-api.herokuapp.com/item/1
+
+
 
 Page 3: Careers
 
@@ -49,6 +58,7 @@ Api for name animation (Post Call): https://starbuck-api.herokuapp.com/name
 Fetching name for animation: https://starbuck-api.herokuapp.com/fetchname/620a32d2f173b2436e1192d0
 
 
+
 Page 4: Starbucks Delivers/Filters
 
 For Type (veg/Non-Veg): https://starbuck-api.herokuapp.com/filter?type=Vegetarian
@@ -64,6 +74,8 @@ Menu item based on user's selection (Post Call): https://starbuck-api.herokuapp.
 Update Order (Put Call): https://starbuck-api.herokuapp.com/updateOrder/620a171210f46a95ecc712d2?status=SUCCESS
 
 Delete Order: https://starbuck-api.herokuapp.com/deleteOrder
+
+
 
 Page 5: Rewards
 
